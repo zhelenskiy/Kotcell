@@ -27,4 +27,4 @@ If you consider a cell equation to be a function that computes something, then t
 
 ### Interop & libraries
 
-### Solutions
+## Solutions
