@@ -19,7 +19,8 @@ If you consider a cell equation to be a function that computes something, then t
 * Let specialize representation: string representation of the value is no longer a value inside, it is just a representation of the value in some readable format. Furthermore, we can provide some overridable by cell method `toCellRepresentation()` that sets content to the result of `toString()` by default. This would let user easily create custom cell fillers (like inline tex-like equations, inline diagrams, dynamic picture viewers and other complex custom widgets)
 
 ### Bad syntax
+* extra cells usage
 * lambdas
 * oneliners
 
-### Interop
+### Interop & libraries
