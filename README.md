@@ -22,5 +22,7 @@ If you consider a cell equation to be a function that computes something, then t
 * extra cells usage
 * lambdas
 * oneliners
+* finite ranges
+* partial translation
 
 ### Interop & libraries
