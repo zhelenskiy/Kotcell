@@ -26,3 +26,5 @@ If you consider a cell equation to be a function that computes something, then t
 * partial translation
 
 ### Interop & libraries
+
+### Solutions
