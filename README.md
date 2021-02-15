@@ -18,13 +18,36 @@ If you consider a cell equation to be a function that computes something, then t
 * Significantly simplify usage of the cell from other cells by escaping deserializing from string or collecting data from different cells.
 * Let specialize representation: string representation of the value is no longer a value inside, it is just a representation of the value in some readable format. Furthermore, we can provide some overridable by cell method `toCellRepresentation()` that sets content to the result of `toString()` by default. This would let user easily create custom cell fillers (like inline tex-like equations, inline diagrams, dynamic picture viewers and other complex custom widgets)
 
-### Bad syntax
-* extra cells usage
-* lambdas
-* oneliners
-* finite ranges
-* partial translation
+### Partial translation
+A very weird strategy was chosen to support other locales: translating functions but not cell letters. This means that if my local layout is different from the English one, I have to switch between layouts about 10 times per short equation. Accidental switching makes typing equations even harder. So it would be better to translate either everything including columns naming or only documentation.
+
+Example: `=СЧЁТЕСЛИМН(A2:A7;"<6";A2:A7;">1")` is `=COUNTIFS(A2:A7;"<6";A2:A7;">1")` in Engish.
+
+### Finite ranges
+All ranges must have a finite size in **Excel**. But that can be bad if you want to be able to proceed with any number of items. For example, You have some numbers in column `A`, and you want to have them powered with 2 in the column `B`. You have to know a maximal number of elements in the first column by the moment of creating the equation for cells in column `B`.
+
+### Predicates
+Predicates (an example is above) have very ugly and not extendable syntax.
+* They are ugly because they are specified just as string literals with no validation.
+* They are not extendable because they only work in this case: if I want some more complex condition (or just `num -> num < 3 || num > 5`), I have to use intermediate cells.
+
+A lot better way is to use lambda functions.
+
+### Oneliners
+All cell formulas are expressions with no intermediate named values inside the cell, that is why you have to use additional cells to contain intermediate variables to make the main cell content readable. By the way, `LET` function is going to be added to the stable release so the value of the point is a lot less now. However, such a function is still quite ugly.
+
+### Extra cells usage
+Extra cells are used as a workaround for the 2 previous problems.
+But this leads to:
+* Lack of incapsulation.
+* Not ability to use the intermediate cells for some other purpose.
 
 ### Interop & libraries
+The only interoperability between Excel and side libraries comes from macroses that are
+* Written with unpopular VB.Net
+* Are unsafe
+* Are not as easy to create and call from cells as standard functions.
 
 ## Solutions
+
+## Problems
