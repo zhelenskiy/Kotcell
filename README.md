@@ -40,7 +40,7 @@ All cell formulas are expressions with no intermediate named values inside the c
 Extra cells are used as a workaround for the 2 previous problems.
 But this leads to:
 * Lack of incapsulation.
-* Not ability to use the intermediate cells for some other purpose.
+* Lack of ability to use the intermediate cells for some other purpose.
 
 ### Interop & libraries
 The only interoperability between Excel and side libraries comes from macroses that are
@@ -50,16 +50,16 @@ The only interoperability between Excel and side libraries comes from macroses t
 
 ## Solution
 
-My solution is making some computable cell-based notebook whose formula syntax is syntax of some programming language.
+My solution is making some computable cell-based notebook whose formula syntax is the syntax of some programming language.
 
 #### Requirements:
 * Simplicity
 
-  User of the app should be able to write simple program (**Excel**-like formula) without knowledge of some programming-related stuff)
+  A user of the app should be able to write a simple program (**Excel**-like formula) without knowledge of some programming-related stuff)
 * Brevity
 
   It must be not verbose: the formulas would become too complicated.
-  They should be at least not longer than **Excel**'s ones in most of cases.
+  They should be at least not longer than **Excel**'s ones in most cases.
 * Expressiveness
 
   Simple things should be simply coded and simply understood. Hard things should be simply understood.
@@ -68,9 +68,9 @@ My solution is making some computable cell-based notebook whose formula syntax i
 #### Highly wanted:
 * Static typing
 
-  Type-safety is a garantee that everything will continue working even if conditional branch in some formula would be changed because of some data changing.
+  Type-safety is a guarantee that everything will continue working even if conditional branch in some formula would be changed because of some data changing.
 
-#### Wanted, but not nessecary:
+#### Wanted, but not necessary:
 * High speed
   
   **Excel** computations are slow so high speed would be a good bonus.
