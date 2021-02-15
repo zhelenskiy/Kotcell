@@ -68,6 +68,9 @@ My solution is making some computable cell-based notebook whose formula syntax i
   No boilerplate for simple things. *This also includes having some helpful operators such as range-operators.*
 
 #### Highly wanted:
+* __Fast compilation (if needed)__
+
+  Delay between printing a formula and its evaluation should be small (as it is in **Excel**)
 * __Static typing__
 
   Type-safety is a guarantee that everything will continue working even if conditional branch in some formula would be changed because of some data changing.
@@ -77,8 +80,32 @@ My solution is making some computable cell-based notebook whose formula syntax i
   
   **Excel** computations are slow so high speed would be a good bonus.
 
-* __Fast compilation (if needed)__
+------
 
-  Delay between printing a formula and its evaluation should be small (as it is in **Excel**)
+Here is approximate list of languages with their comparison in the context of the app.
+
+<table>
+  <tr bgcolor='red'>
+    <th>Name</th><th>Simplicity</th><th>Brevity</th><th>Epressiveness</th><th>Static typing</th><th>High speed</th><th>Fast compilation</th>
+  </tr>
+  <tr>
+    <td>C++</td>
+  </tr>
+  <tr>
+    <td>Python</td>
+  </tr>
+  <tr>
+    <td>Java</td>
+  </tr>
+  <tr>
+    <td>Kotlin</td>
+  </tr>
+  <tr>
+    <td>C#</td>
+  </tr>
+  <tr>
+    <td>Haskell</td>
+  </tr>
+</table>
 
 ## Problems
