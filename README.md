@@ -48,6 +48,35 @@ The only interoperability between Excel and side libraries comes from macroses t
 * Unsafe
 * Not as easy to create and call from cells as standard functions.
 
-## Solutions
+## Solution
+
+My solution is making some computable cell-based notebook whose formula syntax is syntax of some programming language.
+
+#### Requirements:
+* Simplicity
+
+  User of the app should be able to write simple program (**Excel**-like formula) without knowledge of some programming-related stuff)
+* Brevity
+
+  It must be not verbose: the formulas would become too complicated.
+  They should be at least not longer than **Excel**'s ones in most of cases.
+* Expressiveness
+
+  Simple things should be simply coded and simply understood. Hard things should be simply understood.
+  No boilerplate for simple things. *This also includes having some operators for ranges.*
+
+#### Highly wanted:
+* Static typing
+
+  Type-safety is a garantee that everything will continue working even if conditional branch in some formula would be changed because of some data changing.
+
+#### Wanted, but not nessecary:
+* High speed
+  
+  **Excel** computations are slow so high speed would be a good bonus.
+
+* Fast compilation (if needed)
+
+  Delay between printing a formula and its evaluation should be small (as it is in **Excel**)
 
 ## Problems
