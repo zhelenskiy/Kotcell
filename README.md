@@ -45,8 +45,8 @@ But this leads to:
 ### Interop & libraries
 The only interoperability between Excel and side libraries comes from macroses that are
 * Written with unpopular VB.Net
-* Are unsafe
-* Are not as easy to create and call from cells as standard functions.
+* Unsafe
+* Not as easy to create and call from cells as standard functions.
 
 ## Solutions
 
