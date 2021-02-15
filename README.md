@@ -52,7 +52,9 @@ The only interoperability between Excel and side libraries comes from macroses t
 
 My solution is making some computable cell-based notebook whose formula syntax is the syntax of some programming language.
 
-#### Requirements:
+### Requirements
+
+#### Necessary:
 * Simplicity
 
   A user of the app should be able to write a simple program (**Excel**-like formula) without knowledge of some programming-related stuff)
@@ -63,7 +65,7 @@ My solution is making some computable cell-based notebook whose formula syntax i
 * Expressiveness
 
   Simple things should be simply coded and simply understood. Hard things should be simply understood.
-  No boilerplate for simple things. *This also includes having some operators for ranges.*
+  No boilerplate for simple things. *This also includes having some helpful operators such as range-operators.*
 
 #### Highly wanted:
 * Static typing
