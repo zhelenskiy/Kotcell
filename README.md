@@ -55,29 +55,29 @@ My solution is making some computable cell-based notebook whose formula syntax i
 ### Requirements
 
 #### Necessary:
-* Simplicity
+* __Simplicity__
 
   A user of the app should be able to write a simple program (**Excel**-like formula) without knowledge of some programming-related stuff)
-* Brevity
+* __Brevity__
 
   It must be not verbose: the formulas would become too complicated.
   They should be at least not longer than **Excel**'s ones in most cases.
-* Expressiveness
+* __Expressiveness__
 
   Simple things should be simply coded and simply understood. Hard things should be simply understood.
   No boilerplate for simple things. *This also includes having some helpful operators such as range-operators.*
 
 #### Highly wanted:
-* Static typing
+* __Static typing__
 
   Type-safety is a guarantee that everything will continue working even if conditional branch in some formula would be changed because of some data changing.
 
 #### Wanted, but not necessary:
-* High speed
+* __High speed__
   
   **Excel** computations are slow so high speed would be a good bonus.
 
-* Fast compilation (if needed)
+* __Fast compilation (if needed)__
 
   Delay between printing a formula and its evaluation should be small (as it is in **Excel**)
 
