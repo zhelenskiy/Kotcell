@@ -101,7 +101,7 @@ Here is an approximate list of languages with their comparison in the context of
     <th>Python</th>
     <th><pre lang='diff'>+ 10 points</pre></th>
     <th><pre lang='diff'>+ 8 points</pre></th>
-    <th><pre lang='diff'>- 3 point</pre></th>
+    <th><pre lang='diff'>- 3 points</pre></th>
     <th><pre lang='diff'>! 4 points</pre></th>
     <th><pre lang='diff'>+ 10 points</pre></th>
     <th>35 points</th>
