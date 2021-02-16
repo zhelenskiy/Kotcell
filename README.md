@@ -144,6 +144,9 @@ Here is approximate list of languages with their comparison in the context of th
   </tr>
 </table>
 
+So the chosen language was Kotlin.
+Solution of the compilation speed problem would be given in the corresponding paragraph of the article.
+
 ## Implementation
 
 ## Problems
