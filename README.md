@@ -85,26 +85,62 @@ My solution is making some computable cell-based notebook whose formula syntax i
 Here is approximate list of languages with their comparison in the context of the app.
 
 <table>
-  <tr bgcolor='red'>
-    <th>Name</th><th>Simplicity</th><th>Brevity</th><th>Epressiveness</th><th>Static typing</th><th>High speed</th><th>Fast compilation</th>
+  <tr>
+    <th>Name</th><th>Simplicity</th><th>Expressiveness</th><th>Static typing</th><th>High speed</th><th>Fast compilation</th><th>Sum</th>
   </tr>
   <tr>
-    <td>C++</td>
+    <th>C++</th>
+    <th><pre lang='diff'>- 0 points</pre></th>
+    <th><pre lang='diff'>! 4 points</pre></th>
+    <th><pre lang='diff'>! 4 points</pre></th>
+    <th><pre lang='diff'>+ 10 points</pre></th>
+    <th><pre lang='diff'>- 0 points</pre></th>
+    <th>18 points</th>
   </tr>
   <tr>
-    <td>Python</td>
+    <th>Python</th>
+    <th><pre lang='diff'>+ 10 points</pre></th>
+    <th><pre lang='diff'>+ 8 points</pre></th>
+    <th><pre lang='diff'>- 1 point</pre></th>
+    <th><pre lang='diff'>! 4 points</pre></th>
+    <th><pre lang='diff'>+ 10 points</pre></th>
+    <th>33 points</th>
   </tr>
   <tr>
-    <td>Java</td>
+    <th>Java</th>
+    <th><pre lang='diff'>+ 7 points</pre></th>
+    <th><pre lang='diff'>- 3 points</pre></th>
+    <th><pre lang='diff'>+ 7 points</pre></th>
+    <th><pre lang='diff'>+ 8 points</pre></th>
+    <th><pre lang='diff'>! 6 points</pre></th>
+    <th>31 points</th>
   </tr>
   <tr>
-    <td>Kotlin</td>
+    <th>Kotlin</th>
+    <th><pre lang='diff'>+ 7 points</pre></th>
+    <th><pre lang='diff'>+ 10 points</pre></th>
+    <th><pre lang='diff'>+ 8 points</pre></th>
+    <th><pre lang='diff'>+ 8 points</pre></th>
+    <th><pre lang='diff'>! 6 points</pre></th>
+    <th>39 points</th>
   </tr>
   <tr>
-    <td>C#</td>
+    <th>C#</th>
+    <th><pre lang='diff'>+ 7 points</pre></th>
+    <th><pre lang='diff'>+ 8 points</pre></th>
+    <th><pre lang='diff'>+ 8 points</pre></th>
+    <th><pre lang='diff'>+ 8 points</pre></th>
+    <th><pre lang='diff'>! 6 points</pre></th>
+    <th>37 points</th>
   </tr>
   <tr>
-    <td>Haskell</td>
+    <th>Haskell</th>
+    <th><pre lang='diff'>- 3 points</pre></th>
+    <th><pre lang='diff'>! 5 points</pre></th>
+    <th><pre lang='diff'>+ 10 points</pre></th>
+    <th><pre lang='diff'>+ 8 points</pre></th>
+    <th><pre lang='diff'>+ 8 points</pre></th>
+    <th>34 points</th>
   </tr>
 </table>
 
