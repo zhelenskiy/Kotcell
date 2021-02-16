@@ -86,7 +86,7 @@ Here is an approximate list of languages with their comparison in the context of
 
 <table>
   <tr>
-    <th>Name</th><th>Simplicity</th><th>Expressiveness</th><th>Safety & Static typing</th><th>High speed</th><th>Fast compilation</th><th>Sum</th>
+    <th>Name</th><th>Simplicity</th><th>Expressiveness</th><th>Safety<br/>&<br/>Static typing</th><th>High speed</th><th>Fast compilation</th><th>Sum</th>
   </tr>
   <tr>
     <th>C++</th>
