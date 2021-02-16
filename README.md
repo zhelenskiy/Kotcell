@@ -138,9 +138,9 @@ Here is an approximate list of languages with their comparison in the context of
     <th><pre lang='diff'>- 3 points</pre></th>
     <th><pre lang='diff'>! 5 points</pre></th>
     <th><pre lang='diff'>+ 10 points</pre></th>
+    <th><pre lang='diff'>+ 7 points</pre></th>
     <th><pre lang='diff'>+ 8 points</pre></th>
-    <th><pre lang='diff'>+ 8 points</pre></th>
-    <th>34 points</th>
+    <th>33 points</th>
   </tr>
 </table>
 
