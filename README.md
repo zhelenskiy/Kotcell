@@ -86,25 +86,25 @@ Here is approximate list of languages with their comparison in the context of th
 
 <table>
   <tr>
-    <th>Name</th><th>Simplicity</th><th>Expressiveness</th><th>Static typing</th><th>High speed</th><th>Fast compilation</th><th>Sum</th>
+    <th>Name</th><th>Simplicity</th><th>Expressiveness</th><th>Safety & Static typing</th><th>High speed</th><th>Fast compilation</th><th>Sum</th>
   </tr>
   <tr>
     <th>C++</th>
     <th><pre lang='diff'>- 0 points</pre></th>
     <th><pre lang='diff'>! 4 points</pre></th>
-    <th><pre lang='diff'>! 4 points</pre></th>
+    <th><pre lang='diff'>! 5 points</pre></th>
     <th><pre lang='diff'>+ 10 points</pre></th>
     <th><pre lang='diff'>- 0 points</pre></th>
-    <th>18 points</th>
+    <th>19 points</th>
   </tr>
   <tr>
     <th>Python</th>
     <th><pre lang='diff'>+ 10 points</pre></th>
     <th><pre lang='diff'>+ 8 points</pre></th>
-    <th><pre lang='diff'>- 1 point</pre></th>
+    <th><pre lang='diff'>- 3 point</pre></th>
     <th><pre lang='diff'>! 4 points</pre></th>
     <th><pre lang='diff'>+ 10 points</pre></th>
-    <th>33 points</th>
+    <th>35 points</th>
   </tr>
   <tr>
     <th>Java</th>
