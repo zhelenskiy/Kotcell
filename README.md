@@ -82,7 +82,7 @@ My solution is making some computable cell-based notebook whose formula syntax i
 
 ------
 
-Here is approximate list of languages with their comparison in the context of the app.
+Here is an approximate list of languages with their comparison in the context of the app.
 
 <table>
   <tr>
@@ -145,7 +145,7 @@ Here is approximate list of languages with their comparison in the context of th
 </table>
 
 So the chosen language was Kotlin.
-Solution of the compilation speed problem would be given in the corresponding paragraph of the article.
+A solution to the compilation speed problem would be given in the corresponding paragraph of the article.
 
 ## Implementation
 
