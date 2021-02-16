@@ -90,56 +90,179 @@ Here is an approximate list of languages with their comparison in the context of
   </tr>
   <tr>
     <th>C++</th>
-    <th><pre lang='diff'>- 0 points</pre></th>
-    <th><pre lang='diff'>! 4 points</pre></th>
-    <th><pre lang='diff'>! 5 points</pre></th>
-    <th><pre lang='diff'>+ 10 points</pre></th>
-    <th><pre lang='diff'>- 0 points</pre></th>
-    <th>19 points</th>
+    <td align='center' valign='top'>
+      <pre lang='diff'>- 0 points</pre>
+      <p align='justify'>
+      </p>
+    </td>
+    <td align='center' valign='top'>
+      <pre lang='diff'>! 4 points</pre>
+      <p align='justify'>
+      </p>
+    </td>
+    <td align='center' valign='top'>
+      <pre lang='diff'>! 4 points</pre>
+      <p align='justify'>
+        In spite of a powerful type system, it is easy to get a memory leak in C++. Having undefined behaviour is also a big disadventage. You cannot guarantee that some code would behave the same on different platforms. That does not suit **Excell**-like sheets.
+      </p>
+    </td>
+    <td align='center' valign='top'>
+      <pre lang='diff'>+ 10 points</pre>
+      <p align='justify'>
+        Properly written C++ programs are extremely fast so it is used where performance is important (game engines, browser engines, competitive programming).
+      </p>
+    </td>
+    <td align='center' valign='top'>
+      <pre lang='diff'>- 0 points</pre>
+      <p align='justify'>
+        C++ is known for its extremely slow non-iterative compilation that is not suitible for computable notebooks.
+      </p>
+    </td>
+    <th>18 points</th>
   </tr>
   <tr>
     <th>Python</th>
-    <th><pre lang='diff'>+ 10 points</pre></th>
-    <th><pre lang='diff'>+ 8 points</pre></th>
-    <th><pre lang='diff'>- 3 points</pre></th>
-    <th><pre lang='diff'>! 4 points</pre></th>
-    <th><pre lang='diff'>+ 10 points</pre></th>
+    <td align='center' valign='top'>
+      <pre lang='diff'>+ 10 points</pre>
+      <p align='justify'>
+      </p>
+    </td>
+    <td align='center' valign='top'>
+      <pre lang='diff'>+ 8 points</pre>
+      <p align='justify'>
+      </p>
+    </td>
+    <td align='center' valign='top'>
+      <pre lang='diff'>- 3 points</pre>
+      <p align='justify'>
+      </p>
+    </td>
+    <td align='center' valign='top'>
+      <pre lang='diff'>! 4 points</pre>
+      <p align='justify'>
+      </p>
+    </td>
+    <td align='center' valign='top'>
+      <pre lang='diff'>+ 10 points</pre>
+      <p align='justify'>
+      </p>
+    </td>
     <th>35 points</th>
   </tr>
   <tr>
     <th>Java</th>
-    <th><pre lang='diff'>+ 7 points</pre></th>
-    <th><pre lang='diff'>- 3 points</pre></th>
-    <th><pre lang='diff'>+ 7 points</pre></th>
-    <th><pre lang='diff'>+ 8 points</pre></th>
-    <th><pre lang='diff'>! 6 points</pre></th>
+    <td align='center' valign='top'>
+      <pre lang='diff'>+ 7 points</pre>
+      <p align='justify'>
+      </p>
+    </td>
+    <td align='center' valign='top'>
+      <pre lang='diff'>- 3 points</pre>
+      <p align='justify'>
+      </p>
+    </td>
+    <td align='center' valign='top'>
+      <pre lang='diff'>+ 7 points</pre>
+      <p align='justify'>
+      </p>
+    </td>
+    <td align='center' valign='top'>
+      <pre lang='diff'>+ 8 points</pre>
+      <p align='justify'>
+      </p>
+    </td>
+    <td align='center' valign='top'>
+      <pre lang='diff'>! 6 points</pre>
+      <p align='justify'>
+      </p>
+    </td>
     <th>31 points</th>
   </tr>
   <tr>
     <th>Kotlin</th>
-    <th><pre lang='diff'>+ 7 points</pre></th>
-    <th><pre lang='diff'>+ 10 points</pre></th>
-    <th><pre lang='diff'>+ 8 points</pre></th>
-    <th><pre lang='diff'>+ 8 points</pre></th>
-    <th><pre lang='diff'>! 6 points</pre></th>
+    <td align='center' valign='top'>
+      <pre lang='diff'>+ 7 points</pre>
+      <p align='justify'>
+      </p>
+    </td>
+    <td align='center' valign='top'>
+      <pre lang='diff'>+ 10 points</pre>
+      <p align='justify'>
+      </p>
+    </td>
+    <td align='center' valign='top'>
+      <pre lang='diff'>+ 8 points</pre>
+      <p align='justify'>
+      </p>
+    </td>
+    <td align='center' valign='top'>
+      <pre lang='diff'>+ 8 points</pre>
+      <p align='justify'>
+      </p>
+    </td>
+    <td align='center' valign='top'>
+      <pre lang='diff'>! 6 points</pre>
+      <p align='justify'>
+      </p>
+    </td>
     <th>39 points</th>
   </tr>
   <tr>
     <th>C#</th>
-    <th><pre lang='diff'>+ 7 points</pre></th>
-    <th><pre lang='diff'>+ 8 points</pre></th>
-    <th><pre lang='diff'>+ 8 points</pre></th>
-    <th><pre lang='diff'>+ 8 points</pre></th>
-    <th><pre lang='diff'>! 6 points</pre></th>
+    <td align='center' valign='top'>
+      <pre lang='diff'>+ 7 points</pre>
+      <p align='justify'>
+      </p>
+    </td>
+    <td align='center' valign='top'>
+      <pre lang='diff'>+ 8 points</pre>
+      <p align='justify'>
+      </p>
+    </td>
+    <td align='center' valign='top'>
+      <pre lang='diff'>+ 8 points</pre>
+      <p align='justify'>
+      </p>
+    </td>
+    <td align='center' valign='top'>
+      <pre lang='diff'>+ 8 points</pre>
+      <p align='justify'>
+      </p>
+    </td>
+    <td align='center' valign='top'>
+      <pre lang='diff'>! 6 points</pre>
+      <p align='justify'>
+      </p>
+    </td>
     <th>37 points</th>
   </tr>
   <tr>
     <th>Haskell</th>
-    <th><pre lang='diff'>- 3 points</pre></th>
-    <th><pre lang='diff'>! 5 points</pre></th>
-    <th><pre lang='diff'>+ 10 points</pre></th>
-    <th><pre lang='diff'>+ 7 points</pre></th>
-    <th><pre lang='diff'>+ 8 points</pre></th>
+    <td align='center' valign='top'>
+      <pre lang='diff'>- 3 points</pre>
+      <p align='justify'>
+      </p>
+    </td>
+    <td align='center' valign='top'>
+      <pre lang='diff'>! 5 points</pre>
+      <p align='justify'>
+      </p>
+    </td>
+    <td align='center' valign='top'>
+      <pre lang='diff'>+ 10 points</pre>
+      <p align='justify'>
+      </p>
+    </td>
+    <td align='center' valign='top'>
+      <pre lang='diff'>+ 7 points</pre>
+      <p align='justify'>
+      </p>
+    </td>
+    <td align='center' valign='top'>
+      <pre lang='diff'>+ 8 points</pre>
+      <p align='justify'>
+      </p>
+    </td>
     <th>33 points</th>
   </tr>
 </table>
