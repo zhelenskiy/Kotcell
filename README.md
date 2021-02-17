@@ -58,14 +58,12 @@ My solution is making some computable cell-based notebook whose formula syntax i
 * __Simplicity__
 
   A user of the app should be able to write a simple program (**Excel**-like formula) without knowledge of some programming-related stuff)
-* __Brevity__
+* __Brevity & Expressiveness__
 
   It must be not verbose: the formulas would become too complicated.
   They should be at least not longer than **Excel**'s ones in most cases.
-* __Expressiveness__
-
-  Simple things should be simply coded and simply understood. Hard things should be simply understood.
-  No boilerplate for simple things. *This also includes having some helpful operators such as range-operators.*
+  There should be no boilerplate for simple things.
+  *This also includes having some helpful operators such as range-operators.*
 
 #### Highly wanted:
 * __Fast compilation (if needed)__
@@ -86,7 +84,11 @@ Here is an approximate list of languages with their comparison in the context of
 
 <table>
   <tr>
-    <th>Name</th><th>Simplicity</th><th>Expressiveness</th><th>Safety<br/>&<br/>Static typing</th><th>High speed</th><th>Fast compilation</th><th>Sum</th>
+    <th>Name</th><th>Simplicity</th>
+    <th>Brevity & Expressiveness</th>
+    <th>Safety & Static typing</th>
+    <th>High speed <i>(<a href='https://github.com/kostya/benchmarks'>Benchmark</a>)</i></th>
+    <th>Fast compilation</th><th>Sum</th>
   </tr>
   <tr>
     <th>C++</th>
@@ -103,19 +105,16 @@ Here is an approximate list of languages with their comparison in the context of
     <td align='center' valign='top'>
       <pre lang='diff'>! 4 points</pre>
       <p align='justify'>
-        In spite of a powerful type system, it is easy to get a memory leak in C++. Having undefined behaviour is also a big disadventage. You cannot guarantee that some code would behave the same on different platforms. That does not suit **Excell**-like sheets.
+        In spite of a powerful type system, it is easy to get a memory leak in C++. Having undefined behaviour is also a big disadventage. You cannot guarantee that some code would behave the same on different platforms. That does not suit <b>Excell</b>-like sheets.
       </p>
     </td>
     <td align='center' valign='top'>
       <pre lang='diff'>+ 10 points</pre>
-      <p align='justify'>
-        Properly written C++ programs are extremely fast so it is used where performance is important (game engines, browser engines, competitive programming).
-      </p>
     </td>
     <td align='center' valign='top'>
       <pre lang='diff'>- 0 points</pre>
       <p align='justify'>
-        C++ is known for its extremely slow non-iterative compilation that is not suitible for computable notebooks.
+        C++ is known for its extremely slow non-iterative compilation that is not suitible for computable notebooks. <i><a href='https://stackoverflow.com/questions/1062140/c-sharp-compilation-time-for-large-projects-compared-to-c'>Comparison with C# compilation</a></i>
       </p>
     </td>
     <th>18 points</th>
@@ -135,16 +134,16 @@ Here is an approximate list of languages with their comparison in the context of
     <td align='center' valign='top'>
       <pre lang='diff'>- 3 points</pre>
       <p align='justify'>
+        Python is a dynamicly typed language. There are type annotations, but they cannot be used in declaration of lambdas and polymorhic methods.
       </p>
     </td>
     <td align='center' valign='top'>
       <pre lang='diff'>! 4 points</pre>
-      <p align='justify'>
-      </p>
     </td>
     <td align='center' valign='top'>
       <pre lang='diff'>+ 10 points</pre>
       <p align='justify'>
+        The most common Python implementations (CPython, PyPy) are interpretable so no compilation is needed.
       </p>
     </td>
     <th>35 points</th>
@@ -164,16 +163,16 @@ Here is an approximate list of languages with their comparison in the context of
     <td align='center' valign='top'>
       <pre lang='diff'>+ 7 points</pre>
       <p align='justify'>
+        Type system of Java is powerful enough for most of practical usages, including (probably, simple) ones that are needed in the computations of cell formulas.
       </p>
     </td>
     <td align='center' valign='top'>
       <pre lang='diff'>+ 8 points</pre>
-      <p align='justify'>
-      </p>
     </td>
     <td align='center' valign='top'>
       <pre lang='diff'>! 6 points</pre>
       <p align='justify'>
+        Compilation even of simple formulas takes so much time that it is still not really significant for singular computations but maybe bad for a sequence of them. Does incremental compilation.
       </p>
     </td>
     <th>31 points</th>
@@ -193,16 +192,16 @@ Here is an approximate list of languages with their comparison in the context of
     <td align='center' valign='top'>
       <pre lang='diff'>+ 8 points</pre>
       <p align='justify'>
+        Same with Java + Null safety + Better Collection Interfaces Hierarchy
       </p>
     </td>
     <td align='center' valign='top'>
       <pre lang='diff'>+ 8 points</pre>
-      <p align='justify'>
-      </p>
     </td>
     <td align='center' valign='top'>
       <pre lang='diff'>! 6 points</pre>
       <p align='justify'>
+        Same as Java: <a href='https://habr.com/ru/company/badoo/blog/329026/'>proof</a>
       </p>
     </td>
     <th>39 points</th>
@@ -222,16 +221,16 @@ Here is an approximate list of languages with their comparison in the context of
     <td align='center' valign='top'>
       <pre lang='diff'>+ 8 points</pre>
       <p align='justify'>
+        Same with Java + Null safety
       </p>
     </td>
     <td align='center' valign='top'>
       <pre lang='diff'>+ 8 points</pre>
-      <p align='justify'>
-      </p>
     </td>
     <td align='center' valign='top'>
       <pre lang='diff'>! 6 points</pre>
       <p align='justify'>
+        Same as Java
       </p>
     </td>
     <th>37 points</th>
@@ -251,19 +250,19 @@ Here is an approximate list of languages with their comparison in the context of
     <td align='center' valign='top'>
       <pre lang='diff'>+ 10 points</pre>
       <p align='justify'>
+        The most powerful type system. It covers a lot more cases than those that can probably be met in this app.
       </p>
     </td>
     <td align='center' valign='top'>
-      <pre lang='diff'>+ 7 points</pre>
-      <p align='justify'>
-      </p>
+      <pre lang='diff'>! 6 points</pre>
     </td>
     <td align='center' valign='top'>
       <pre lang='diff'>+ 8 points</pre>
       <p align='justify'>
+        Using interpreter GHCI instead of compiler GHC is suitable for the purpose. GHCI is fast but a bit slower than ones for Python. However, benchmark from the link above was done with GHC used.
       </p>
     </td>
-    <th>33 points</th>
+    <th>32 points</th>
   </tr>
 </table>
 
