@@ -82,25 +82,46 @@ My solution is making some computable cell-based notebook whose formula syntax i
 
 Here is an approximate list of languages with their comparison in the context of the app.
 
+
 <table>
   <tr>
-    <th>Name</th><th>Simplicity</th>
-    <th>Brevity & Expressiveness</th>
-    <th>Safety & Static typing</th>
-    <th>High speed <i>(<a href='https://github.com/kostya/benchmarks'>Benchmark</a>)</i></th>
-    <th>Fast compilation</th><th>Sum</th>
+    <th>Name</th>
+    <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Simplicity&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+    <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Brevity&nbsp;&&nbsp;Expressiveness&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+    <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Safety&nbsp;&&nbsp;Static&nbsp;typing&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+    <th>High&nbsp;speed <i>(<a href='https://github.com/kostya/benchmarks'>Benchmark</a>)</i></th>
+    <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fast&nbsp;compilation&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th><th>Sum</th>
   </tr>
   <tr>
     <th>C++</th>
     <td align='center' valign='top'>
       <pre lang='diff'>- 0 points</pre>
       <p align='justify'>
+        C++ is a very difficult (for non-programmers) language as it is system programming language.
       </p>
     </td>
-    <td align='center' valign='top'>
-      <pre lang='diff'>! 4 points</pre>
+    <td valign='top'>
+      <pre lang='diff' align='center'>! 4 points</pre>
       <p align='justify'>
-      </p>
+        C++ syntax is very verbose in some cases.
+        Simple example is <a href="https://en.cppreference.com/w/cpp/utility/forward">perfect forwarding</a>:
+
+```cpp
+class B {
+public:
+    template<class T1, class T2, class T3>
+    B(T1&& t1, T2&& t2, T3&& t3) :
+        a1_{std::forward<T1>(t1)},
+        a2_{std::forward<T2>(t2)},
+        a3_{std::forward<T3>(t3)}
+    {
+    }
+ 
+private:
+    A a1_, a2_, a3_;
+};
+```
+</p>
     </td>
     <td align='center' valign='top'>
       <pre lang='diff'>! 4 points</pre>
@@ -124,12 +145,16 @@ Here is an approximate list of languages with their comparison in the context of
     <td align='center' valign='top'>
       <pre lang='diff'>+ 10 points</pre>
       <p align='justify'>
+        Python is one of the easiest languages to learn that takes control of both memory management and arithmetic overflows. That is why it is usually learnt as the first language or as the only one by people who need some programming skills for non-programming area.
       </p>
     </td>
     <td align='center' valign='top'>
       <pre lang='diff'>+ 8 points</pre>
-      <p align='justify'>
-      </p>
+      <ul align='justify'>
+        <li>Python has intuitive, simple and expressive syntax.</li>
+        <li>However, lambda syntax is very verbose. That is quite important <u>for such app</u> where different simple code (such as <pre lang='csharp'>.Where(t => t > 0)</pre>) would be popular.</li>
+        <li>Good point is that Python makes a user follow the correct indentation. However, that is possible to notify about bad ones in other languages. It is not built in the other languages, but the our context is the app.</li>
+      </ul>
     </td>
     <td align='center' valign='top'>
       <pre lang='diff'>- 3 points</pre>
