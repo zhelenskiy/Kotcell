@@ -220,6 +220,7 @@ private:
     <td align='center' valign='top'>
       <pre lang='diff'>+ 10 points</pre>
       <p align='justify'>
+        Kotlin is compatible with Java but got rid of its disadvantages. It also contains lots of syntax sugar that simplifies coding. Lots of it is specific for Kotlin.
       </p>
     </td>
     <td align='center' valign='top'>
@@ -250,6 +251,8 @@ private:
     <td align='center' valign='top'>
       <pre lang='diff'>+ 8 points</pre>
       <p align='justify'>
+        Same as Kotlin. As Kotlin has some specific advantages, C# has its own ones.<br/>
+        But there is a advantage of Kotlin that is important for <b>the app</b>: its lambda syntax is a good instrument to create DSLs. The app has lots of such domains: simple example is describing diagram structure when creating it manually.
       </p>
     </td>
     <td align='center' valign='top'>
