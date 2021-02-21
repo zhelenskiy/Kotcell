@@ -188,7 +188,7 @@ private:
         <ul align='justify'>
           <li>Verbose getters and setters</li>
           <li>Checked exceptions<br/>Reality showed that this leads to lots of rethrowing of checked ones hidden in the unchecked ones. It makes the concept useless as checked exceptions are no more checked.</li>
-          <li>No operator overloading<br/>Java's approach was to limitate it because the overloaded behaviour may be unexpected.<br/>However, that led to not ability to define (existing) operator even if its behaviour is well-known. And this leads to verbosity. Good example of such problem is BigInteger. It has no operators in java, so <pre>(a + b) * (a - b) * (2 a - b)</pre> becomes <pre lang ='java'>a.plus(b).multiply(a.subtract(b)).multiply(BigInteger.valueOf(2).multiply(a).minus(b))</pre> which is definetely verbose.<br/>This is an important example because index is expected to be some BigInteger as user may want to use just 2 cells <code>A1</code> and <code>A1000000000000000000000</code> and there is no reason to forbid it.</li>
+          <li>No operator overloading<br/>Java's approach was to limitate it because the overloaded behaviour may be unexpected.<br/>However, that led to not ability to define (existing) operator even if its behaviour is well-known. And this leads to verbosity. Good example of such problem is BigInteger. It has no operators in java, so <pre>(a + b) * (a - b) * (2 a - b)</pre> becomes <pre lang ='java'>a.plus(b).multiply(a.subtract(b)).multiply(BigInteger.valueOf(2).multiply(a).minus(b))</pre> which is definetely verbose.<br/>This is an important example because cell index in the app is expected to be some <code lang='java'>BigInteger</code> as user may want to use just 2 cells <code>A1</code> and <code>A1000000000000000000000</code> and there is no reason to forbid it.</li>
           <li><i>(NO MORE VALID)</i> No record classes</li>
       </p>
     </td>
@@ -274,7 +274,7 @@ private:
     <td align='center' valign='top'>
       <pre lang='diff'>- 3 points</pre>
       <p align='justify'>
-        Haskell has automatic memory management too. But standard mathematical class types (Functors, Applicatives, Monads, Arrow, ...), advanced Hindley–Milner type system are supposed to be a bad choise for begginners.
+        Haskell has automatic memory management too. But standard mathematical class types (Functors, Applicatives, Monads, Arrow, ...), advanced Hindley–Milner type system are supposed to be a bad choise for beginners.
       </p>
     </td>
     <td valign='top'>
