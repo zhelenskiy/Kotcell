@@ -178,11 +178,18 @@ private:
     <td align='center' valign='top'>
       <pre lang='diff'>+ 7 points</pre>
       <p align='justify'>
+        Java memory management is based on GC. All classes instances are references so are easy to be effectively taken as a function argument (without necessity to think about reference type, moving, copying as in C++). That makes programming a lot easier for newbies like the app users. Java uses OOP as the main paradigm. However, it may be a bit difficult for those who have no programming skills to deal with it.
       </p>
     </td>
     <td align='center' valign='top'>
       <pre lang='diff'>- 3 points</pre>
       <p align='justify'>
+        Java is known as a very verbose language because of many reasons. Some of them are:
+        <ul align='justify'>
+          <li>Verbose getters and setters</li>
+          <li>Checked exceptions<br/>Reality showed that this leads to lots of rethrowing of checked ones hidden in the unchecked ones. It makes the concept useless as checked exceptions are no more checked.</li>
+          <li>No operator overloading<br/>Java's approach was to limitate it because the overloaded behaviour may be unexpected.<br/>However, that led to not ability to define (existing) operator even if its behaviour is well-known. And this leads to verbosity. Good example of such problem is BigInteger. It has no operators in java, so <pre>(a + b) * (a - b) * (2 a - b)</pre> becomes <pre lang ='java'>a.plus(b).multiply(a.subtract(b)).multiply(BigInteger.valueOf(2).multiply(a).minus(b))</pre> which is definetely verbose.<br/>This is an important example because index is expected to be some BigInteger as user may want to use just 2 cells <code>A1</code> and <code>A1000000000000000000000</code> and there is no reason to forbid it.</li>
+          <li><i>(NO MORE VALID)</i> No record classes</li>
       </p>
     </td>
     <td align='center' valign='top'>
@@ -207,6 +214,7 @@ private:
     <td align='center' valign='top'>
       <pre lang='diff'>+ 7 points</pre>
       <p align='justify'>
+        Same as Java
       </p>
     </td>
     <td align='center' valign='top'>
@@ -236,6 +244,7 @@ private:
     <td align='center' valign='top'>
       <pre lang='diff'>+ 7 points</pre>
       <p align='justify'>
+        Same as Java
       </p>
     </td>
     <td align='center' valign='top'>
@@ -265,12 +274,20 @@ private:
     <td align='center' valign='top'>
       <pre lang='diff'>- 3 points</pre>
       <p align='justify'>
+        Haskell has automatic memory management too. But standard mathematical class types (Functors, Applicatives, Monads, Arrow, ...), advanced Hindley–Milner type system are supposed to be a bad choise for begginners.
       </p>
     </td>
-    <td align='center' valign='top'>
-      <pre lang='diff'>! 5 points</pre>
-      <p align='justify'>
-      </p>
+    <td valign='top'>
+      <pre align='center' lang='diff'>! 5 points</pre>
+<p align='justify'>
+        Haskell is a lazy functional language so some things are easily coded:
+        <pre lang='haskell'>
+primes = filterPrime [2..]
+  where filterPrime (p:xs) =
+          p : filterPrime [x | x <- xs, x `mod` p /= 0]
+        </pre>
+        But lots of algorithms are easily coded only in the imperative non-pure style (<a href="https://en.wikipedia.org/wiki/Sequential_minimal_optimization">SMO</a>, <a href="https://www.researchgate.net/publication/2295532_Lazy_Depth-First_Search_and_Linear_Graph_Algorithms_in_Haskell">DFS</a>). 
+</p>
     </td>
     <td align='center' valign='top'>
       <pre lang='diff'>+ 10 points</pre>
