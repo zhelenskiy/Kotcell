@@ -24,7 +24,7 @@ A very weird strategy was chosen to support other locales: translating functions
 Example: `=СЧЁТЕСЛИМН(A2:A7;"<6";A2:A7;">1")` is `=COUNTIFS(A2:A7;"<6";A2:A7;">1")` in Engish.
 
 ### Finite ranges
-All ranges must have a finite size in **Excel**. But that can be bad if you want to be able to proceed with any number of items. For example, You have some numbers in column `A`, and you want to have them powered with 2 in the column `B`. You have to know a maximal number of elements in the first column by the moment of creating the equation for cells in column `B`.
+All ranges must have a finite size in **Excel**. But that can be bad if you want to be able to proceed with any number of items. For example, You have some numbers in column `A`, and you want to have them powered with 2 in column `B`. You have to know a maximal number of elements in the first column by the moment of creating the equation for cells in column `B`.
 
 ### Predicates
 Predicates (an example is above) have very ugly and not extendable syntax.
@@ -34,7 +34,7 @@ Predicates (an example is above) have very ugly and not extendable syntax.
 A lot better way is to use lambda functions.
 
 ### Oneliners
-All cell formulas are expressions with no intermediate named values inside the cell, that is why you have to use additional cells to contain intermediate variables to make the main cell content readable. By the way, `LET` function is going to be added to the stable release so the value of the point is a lot less now. However, such a function is still quite ugly.
+All cell formulas are expressions with no intermediate named values inside the cell, that is why you have to use additional cells to contain intermediate variables to make the main cell content readable. By the way, the `LET` function is going to be added to the stable release so the value of the point is a lot less now. However, such a function is still quite ugly.
 
 ### Extra cells usage
 Extra cells are used as a workaround for the 2 previous problems.
@@ -71,7 +71,7 @@ My solution is making some computable cell-based notebook whose formula syntax i
   Delay between printing a formula and its evaluation should be small (as it is in **Excel**)
 * __Static typing__
 
-  Type-safety is a guarantee that everything will continue working even if conditional branch in some formula would be changed because of some data changing.
+  Type-safety is a guarantee that everything will continue working even if the conditional branch in some formula would be changed because of some data changing.
 
 #### Wanted, but not necessary:
 * __High speed__
@@ -178,7 +178,7 @@ private:
     <td align='center' valign='top'>
       <pre lang='diff'>+ 7 points</pre>
       <p align='justify'>
-        Java memory management is based on GC. All classes instances are references so are easy to be effectively taken as a function argument (without necessity to think about reference type, moving, copying as in C++). That makes programming a lot easier for newbies like the app users. Java uses OOP as the main paradigm. However, it may be a bit difficult for those who have no programming skills to deal with it.
+        Java memory management is based on GC. All classes instances are references so are easy to be effectively taken as a function argument (without the necessity to think about reference type, moving, copying as in C++). That makes programming a lot easier for newbies like app users. Java uses OOP as the main paradigm. However, it may be a bit difficult for those who have no programming skills to deal with it.
       </p>
     </td>
     <td align='center' valign='top'>
