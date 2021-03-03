@@ -82,6 +82,8 @@ My solution is making some computable cell-based notebook whose formula syntax i
 
 Here is an approximate list of languages with their comparison in the context of the app.
 
+**WARNING**: the following table is just an argumented opinion of the author.
+
 
 <table>
   <tr>
@@ -315,5 +317,24 @@ So the chosen language was Kotlin.
 A solution to the compilation speed problem would be given in the corresponding paragraph of the article.
 
 ## Implementation
+
+There is following hierarhy of region classes: `Cell, Row, Column, Sheet : Region`.
+* Each `Region` can be named.
+* Each region can be  used to address relatively: `someRegion[23..35][56..76]`
+* All they have internal constructors that are used in `range` function whose return type is as most specific as possible *in runtime*.
+
+  Example:
+  ```kotlin
+  (cell1..cell1) /* : Region*/ is Cell // true
+  range(row1, column1..column3) /* : Region*/ is Cell // false
+  ```
+
+There are `Infinity` objects: `PositiveInfinity`, `NegativeInfinity`. They are used as arguments to create infinite ranges.
+
+`Cell` has properties `row` and `column`.
+
+Indexing is expected to be done with some `BigInteger`s as there should be no problems with usage of cells with big indexes. This `BigInteger` oughts to support negative numbers as they can be used as a term for some other address. However, operators should also support indexing by `Int`, `Long` instances because they are easier to write.
+
+
 
 ## Problems
