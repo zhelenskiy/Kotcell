@@ -384,9 +384,21 @@ A solution to the compilation speed problem would be given in the corresponding 
 * Regions have `width` and `height` properties.
 * Regions should contain such (extension) methods of `Iterable`s and `Sequence`s that are applyable to them too.
 
-### Cell types
+### Region content
+* Region content has explicit typing (reason was noticed in the intro paragraph).
+* One of the possible types is __Executable code__.
+* You can specify its type and then input data that would be parsed with the corresponding parser.
+* You should have an ability to set your own data type and parsers for it.
+* Such approach also helps to support custom input types out from the box. An example is equation input using LaTeX or using GUI (as in Microsoft Office Word, Excel).
+* You can specify how to render your data by deriving `Renderable` interface. By default, the rendered content is just a rendered `toString`. Good examples are diagrams and equation input. *Both are expected to be builtins.*
+* Iterables should have suitable `Renderable` instance.
+* Alternative approach is making all content be executable code. But it has following disadvantges:
+  * It is imposible to have custom inputs.
+  * If you want to input just a tet snippet, you have to wrap it with `"""` either use escape sequences.
+  * The code is compilable in the Kotlin. Unfortunately, the autor doesn't know any suitable way to decrease start up time of executing. Compilation is much slower than data parsing (with something like `Date.parse`).
 
 ### Code support
 
 
 ## Problems
+* One of the main problems was slow compilation (comparing to interpretable languages with zero-time compilation). But it was solved by using code type only when it is actually coe, not data.
