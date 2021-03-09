@@ -82,7 +82,7 @@ My solution is making some computable cell-based notebook whose formula syntax i
 
 Here is an approximate list of languages with their comparison in the context of the app.
 
-**WARNING**: the following table is just an argumented opinion of the author.
+**WARNING**: The following table is just a reasoned opinion of the author.
 
 
 <table>
@@ -319,38 +319,38 @@ A solution to the compilation speed problem would be given in the corresponding 
 ## Implementation
 
 ### Indexing
-* Indexing is expected to be done with some `BigInteger`s as there should be no problems with usage of cells with big indexes.
+* Indexing is expected to be done with some `BigInteger`s as there should be no problems with the usage of cells with big indexes.
 * This `BigInteger` oughts to support negative numbers as they can be used as a term for some other address.
 * Operators should also support indexing by `Int`, `Long` instances because they are easier to write.
 * `java.math.BigInteger` type shouldn't be used as the `BigInteger` itself because used implementation may change:
   * It has slow multiplication
   * It is JVM only
-  So some its wrapper should be used instead now.
+  So its wrapper should be used instead now.
 
 ### Infinity
 * There are `Infinity` objects: `PositiveInfinity`, `NegativeInfinity`.
 * They are used as arguments to create infinite ranges and progressions.
-* `Infinity` should be used just a pseudonyme for iether `PositiveInfinity` or `NegativeInfinity` object depending on the context.
+* `Infinity` should be used just as a pseudonym for either `PositiveInfinity` or `NegativeInfinity` object depending on the context.
 * Each of the objects has its readable string representation (`∞`, `+∞`, `-∞`).
-* Each of them has unary minus and unary plus operators. For `Infinity` object it just specifies its type (`PositiveInfinity` or `NegativeInfinity`) as they behave for unsigned infinity in both mathematics and string representation.
-* The should be typealias `typealias Inf = Infinity`
+* Each of them has unary minus and unary plus operators. For the `Infinity` object it just specifies its type (`PositiveInfinity` or `NegativeInfinity`) as they behave for unsigned infinity in both mathematics and string representation.
+* There should be `typealias Inf = Infinity` alias.
 
 ### Ranges
 * As all numeric types, these `BigInteger`s have corresponding `Progression` and `Range` class.
 * However, I expect these classes to be a bit wider than there `stdlib` analogues, they should:
   1. Support infinity ranges/progressions
   2. Consequently, be `Sequence` but not `Iterable` by default (be lazy).
-  3. Have effective `size`, `contains`, `intersect`, `union` and other operations that have generalized implementation for `Iterable`s and `Sequence`s. They should have same semantics when possible.
+  3. Have effective `size`, `contains`, `intersect`, `union` and other operations that have generalized implementation for `Iterable`s and `Sequence`s. They should have the same semantics when possible.
 * `Range` instances, but not `Progression` ones need to be returned from the functions, so `Progression` constructor should be internal or even private, static abstract method `fromClosedRange` and `progression`/`range` functions should be used instead of it from externals of the `Progression` implementation.
 
 ### Regions
 * Regions are expected to be only rectangles to make it easy to find intersections and cell owners. Also, other regions are rarely used in real life.
-* However, there should be `Regions` class that
+* However, there should be a `RegionSet` class that
   * Contains regions in some specific order.
   * Supports adding new ones
   * Removing ones
-  * Comparing with other `Regions` instances
-  * Iterating over regions insie it.
+  * Comparing with other `RegionSet` instances
+  * Iterating over regions inside it.
   * If some region is already contained by some of the regions, it shouldn't be inside. Example: There are two rectangles (vertical and horizontal lines inside)
     ```
     ▤▤
@@ -366,10 +366,10 @@ A solution to the compilation speed problem would be given in the corresponding 
     ▢▢
     ```
     No rectangle contains the new one itself but their union does so we don't add the new rectangle.
-* There is following hierarhy of region classes: `Cell, Row, Column, Sheet, EmptyRegion : Region`.
+* There is the following hierarchy of region classes: `Cell, Row, Column, Sheet, EmptyRegion : Region`.
 * Each `Region` can be named.
 * Each region can be  used to address relatively: `someRegion[Cell(23, 1)..Cell(35, 100)][region(56..76, 1)]`
-* All they have internal constructors that are used in `range` function whose return type is as most specific as possible *in runtime*.
+* All they have internal constructors that are used in the `range` function whose return type is as most specific as possible *in runtime*.
 
   Example:
   ```kotlin
@@ -378,25 +378,25 @@ A solution to the compilation speed problem would be given in the corresponding 
   ```
 
 * `Cell` has properties `row` and `column`.
-* Region constructor should be internal. An abstract function `region` should be used instead. It is done to make all cell-, row-, column-, sheet-, emptyRegion- like regions be instances of the corresponding classes.
+* Region constructor should be internal. An abstract function `region` should be used instead. It is done to make all cell-, row-, column-, sheet-like, empty regions be instances of the corresponding classes.
 * Regions can be infinite
 * Regions can be converted to `Sequence` or `Iterable` with row-by-row and column-by-column order.
 * Regions have `width` and `height` properties.
-* Regions should contain such (extension) methods of `Iterable`s and `Sequence`s that are applyable to them too.
+* Regions should contain such (extension) methods of `Iterable`s and `Sequence`s that apply to them too.
 
 ### Region content
-* Region content has explicit typing (reason was noticed in the intro paragraph).
+* Region content has explicit typing (the reason was noticed in the intro paragraph).
 * One of the possible types is __Executable code__.
 * You can specify its type and then input data that would be parsed with the corresponding parser.
-* You should have an ability to set your own data type and parsers for it.
-* Such approach also helps to support custom input types out from the box. An example is equation input using LaTeX or using GUI (as in Microsoft Office Word, Excel).
-* You can specify how to render your data by deriving `Renderable` interface. By default, the rendered content is just a rendered `toString`. Good examples are diagrams and equation input. *Both are expected to be builtins.*
-* Iterables should have suitable `Renderable` instance.
-* Alternative approach is making all content be executable code. But it has following disadvantges:
-  * It is imposible to have custom inputs.
-  * If you want to input just a tet snippet, you have either to wrap it with `"""` or use escape sequences.
-  * The code is compilable in the Kotlin. Unfortunately, the autor doesn't know any suitable way to decrease start up time of executing. Compilation is much slower than data parsing (with something like `Date.parse`).
-* All regions know what code depends on the value in it. If type changes, all dependent scripts are recompiled and rerun, if only content changes (for non-code regions), they ar just rerun.
+* You should have the ability to set your data type and parsers for it.
+* Such an approach also helps to support custom input types out from the box. An example is equation input using LaTeX or using GUI (as in Microsoft Office Word, Excel).
+* You can specify how to render your data by deriving the `Renderable` interface. By default, the rendered content is just a rendered `toString`. Good examples are diagrams and equation input. *Both are expected to be builtins.*
+* Iterables should have a suitable `Renderable` instance.
+* Alternative approach is making all content be executable code. But it has the following disadvantages:
+  * It is impossible to have custom inputs.
+  * If you want to input just a text snippet, you have either to wrap it with `"""` or to use escape sequences.
+  * The code is compilable in the Kotlin. Unfortunately, the author doesn't know any suitable way to decrease the start-up time of executing. The compilation is much slower than data parsing (with something like `Date.parse`).
+* All regions know what code depends on the value in it. If type changes, all dependent scripts are recompiled and rerun, if only content changes (for non-code regions), they are just rerun.
 * Compiled code and data are stored in the project files.
 * Loops when found are explicitly shown and all depending code is stopped.
 * There should be some cache that would help to revert some actions without recompilation.
@@ -404,24 +404,24 @@ A solution to the compilation speed problem would be given in the corresponding 
 
 ### Code support
 * `this` is a `Region` for the code in it.
-* Code highlighting and autocompletition should work during edition.
+* Code highlighting and auto-completion should work during editing.
 * Code from the cell is private by default to motivate not to depend on its changes
-* There are also a common code for each sheet that is visible only from its regions.
+* There is also a common code for each sheet that is visible only from its regions.
 * There is also a common global code for the whole document.
 * There are 2 approaches:
-  1. Code is compiled into `.jar` files. Each region with code has its `.jar`. You need to redownload classes with the same classloader because otherwise same classes would be recognised as different. Proxies should be used to determine who depends on who in runtime. So if you use some property of a region, you would use a proxy instance that would memoize the dependency existence. Scripts are recompiled sequently to be able to find the loops.
-  2. Use incremental compilation. It is more convenient but has a problem that all not compiled code needs to continue working during the recompilation of other part.
-* Libraries can be downloaded from scripts in cells or from Settings of the app.
+  1. Code is compiled into `.jar` files. Each region with code has its `.jar`. You need to redownload the classes with the same classloader because otherwise the same classes would be recognised as different ones. Proxies should be used to determine who depends on who in runtime. So if you use some property of a region, you would use a proxy instance that would memoize the dependency existence. Scripts are recompiled sequentially to be able to find the loops.
+  2. Use incremental compilation. It is more convenient but has a problem that all not compiled code needs to continue working during the recompilation of other parts.
+* Libraries can be downloaded from scripts in cells or Settings of the app.
 * The should be preloaded libraries that contain different economics functions and some other helpful ones.
 * Safety is expected to be guaranteed by policy files. There should be a good UI to choose permissions or to add some custom ones.
 * Default policy should forbid everything.
-* It should be possible to specify policy for some projects
-* It should be possible to add certificate verifying to the autors and choose the policy depending on the author.
+* It should be possible to specify a policy for some projects
+* It should be possible to add a certificate verifying to the authors and choose the policy depending on the author.
 * There should be an ability to set some periodic actions.
-* There should be ability to stop all evaluating scripts.
+* There should be the ability to stop all evaluating scripts.
 
 ## Extra feature
 * There should be a way import Excel files.
 
 ## Problems
-* One of the main problems was slow compilation (comparing to interpretable languages with zero-time compilation). But it was solved by using code type only when it is actually coe, not data.
+* One of the main problems was slow compilation (comparing to interpretable languages with zero-time compilation). But it was solved by using code type only when it is a code, not data.
