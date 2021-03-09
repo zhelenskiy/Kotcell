@@ -318,9 +318,34 @@ A solution to the compilation speed problem would be given in the corresponding 
 
 ## Implementation
 
-There is following hierarhy of region classes: `Cell, Row, Column, Sheet : Region`.
+### Indexing
+* Indexing is expected to be done with some `BigInteger`s as there should be no problems with usage of cells with big indexes.
+* This `BigInteger` oughts to support negative numbers as they can be used as a term for some other address.
+* Operators should also support indexing by `Int`, `Long` instances because they are easier to write.
+* `java.math.BigInteger` type shouldn't be used as the `BigInteger` itself because used implementation may change:
+  * It has slow multiplication
+  * It is JVM only
+  So some its wrapper should be used instead now.
+
+### Infinity
+* There are `Infinity` objects: `PositiveInfinity`, `NegativeInfinity`.
+* They are used as arguments to create infinite ranges and progressions.
+* `Infinity` should be used just a pseudonyme for iether `PositiveInfinity` or `NegativeInfinity` object depending on the context.
+* Each of the objects has its readable string representation (`∞`, `+∞`, `-∞`).
+* Each of them has unary minus and unary plus operators. For `Infinity` object it just specifies its type (`PositiveInfinity` or `NegativeInfinity`) as they behave for unsigned infinity in both mathematics and string representation.
+* The should be typealias `typealias Inf = Infinity`
+
+### Ranges
+* As all numeric types, these `BigInteger`s have corresponding `Progression` and `Range` class.
+* However, I expect these classes to be a bit wider than there `stdlib` analogues, they should:
+  1. Support infinity ranges/progressions
+  2. Consequently, be `Sequence` but not `Iterable` by default (be lazy).
+  3. Have effective `size`, `contains`, `intersect` and so on operations that have generalized implementation for `Iterable`s and `Sequence`s. They should have same semantics when possible.
+
+### Regions
+* There is following hierarhy of region classes: `Cell, Row, Column, Sheet : Region`.
 * Each `Region` can be named.
-* Each region can be  used to address relatively: `someRegion[23..35][56..76]`
+* Each region can be  used to address relatively: `someRegion[Cell(23, 1)..Cell(35, 100)][region(56..76, 1)]`
 * All they have internal constructors that are used in `range` function whose return type is as most specific as possible *in runtime*.
 
   Example:
@@ -329,12 +354,11 @@ There is following hierarhy of region classes: `Cell, Row, Column, Sheet : Regio
   range(row1, column1..column3) /* : Region*/ is Cell // false
   ```
 
-There are `Infinity` objects: `PositiveInfinity`, `NegativeInfinity`. They are used as arguments to create infinite ranges.
+* `Cell` has properties `row` and `column`.
 
-`Cell` has properties `row` and `column`.
+### Cell types
 
-Indexing is expected to be done with some `BigInteger`s as there should be no problems with usage of cells with big indexes. This `BigInteger` oughts to support negative numbers as they can be used as a term for some other address. However, operators should also support indexing by `Int`, `Long` instances because they are easier to write.
-
+### Code support
 
 
 ## Problems
