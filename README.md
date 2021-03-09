@@ -345,6 +345,7 @@ A solution to the compilation speed problem would be given in the corresponding 
 
 ### Regions
 * Regions are expected to be only rectangles to make it easy to find intersections and cell owners. Also, other regions are rarely used in real life.
+* Indexation is only via numbers, not letters. As it is easier to do from code and unifies column and row naming.
 * However, there should be a `RegionSet` class that
   * Contains regions in some specific order.
   * Supports adding new ones
@@ -400,12 +401,14 @@ A solution to the compilation speed problem would be given in the corresponding 
 * Compiled code and data are stored in the project files.
 * Loops when found are explicitly shown and all depending code is stopped.
 * There should be some cache that would help to revert some actions without recompilation.
-* Lots of features such as Diagrams and Equations must have also a wizard that makes the same thing as code generating, but with better UI (but worse automatisation). It is better for users
+* Lots of features such as Diagrams and Equations must have also a wizard that makes the same thing as code generating, but with better UI (but worse automatisation). It is better for users.
 
 ### Code support
+* Evaluation is lazy because cell number may be infinite.
 * `this` is a `Region` for the code in it.
 * Code highlighting and auto-completion should work during editing.
-* Code from the cell is private by default to motivate not to depend on its changes
+* It may be better to highlight first indexes and second indexes differently.
+* Code from the cell is private by default to motivate not to depend on its changes.
 * There is also a common code for each sheet that is visible only from its regions.
 * There is also a common global code for the whole document.
 * There are 2 approaches:
