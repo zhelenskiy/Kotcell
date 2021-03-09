@@ -394,11 +394,34 @@ A solution to the compilation speed problem would be given in the corresponding 
 * Iterables should have suitable `Renderable` instance.
 * Alternative approach is making all content be executable code. But it has following disadvantges:
   * It is imposible to have custom inputs.
-  * If you want to input just a tet snippet, you have to wrap it with `"""` either use escape sequences.
+  * If you want to input just a tet snippet, you have either to wrap it with `"""` or use escape sequences.
   * The code is compilable in the Kotlin. Unfortunately, the autor doesn't know any suitable way to decrease start up time of executing. Compilation is much slower than data parsing (with something like `Date.parse`).
+* All regions know what code depends on the value in it. If type changes, all dependent scripts are recompiled and rerun, if only content changes (for non-code regions), they ar just rerun.
+* Compiled code and data are stored in the project files.
+* Loops when found are explicitly shown and all depending code is stopped.
+* There should be some cache that would help to revert some actions without recompilation.
+* Lots of features such as Diagrams and Equations must have also a wizard that makes the same thing as code generating, but with better UI (but worse automatisation). It is better for users
 
 ### Code support
+* `this` is a `Region` for the code in it.
+* Code highlighting and autocompletition should work during edition.
+* Code from the cell is private by default to motivate not to depend on its changes
+* There are also a common code for each sheet that is visible only from its regions.
+* There is also a common global code for the whole document.
+* There are 2 approaches:
+  1. Code is compiled into `.jar` files. Each region with code has its `.jar`. You need to redownload classes with the same classloader because otherwise same classes would be recognised as different. Proxies should be used to determine who depends on who in runtime. So if you use some property of a region, you would use a proxy instance that would memoize the dependency existence. Scripts are recompiled sequently to be able to find the loops.
+  2. Use incremental compilation. It is more convenient but has a problem that all not compiled code needs to continue working during the recompilation of other part.
+* Libraries can be downloaded from scripts in cells or from Settings of the app.
+* The should be preloaded libraries that contain different economics functions and some other helpful ones.
+* Safety is expected to be guaranteed by policy files. There should be a good UI to choose permissions or to add some custom ones.
+* Default policy should forbid everything.
+* It should be possible to specify policy for some projects
+* It should be possible to add certificate verifying to the autors and choose the policy depending on the author.
+* There should be an ability to set some periodic actions.
+* There should be ability to stop all evaluating scripts.
 
+## Extra feature
+* There should be a way import Excel files.
 
 ## Problems
 * One of the main problems was slow compilation (comparing to interpretable languages with zero-time compilation). But it was solved by using code type only when it is actually coe, not data.
