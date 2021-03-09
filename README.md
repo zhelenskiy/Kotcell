@@ -340,10 +340,34 @@ A solution to the compilation speed problem would be given in the corresponding 
 * However, I expect these classes to be a bit wider than there `stdlib` analogues, they should:
   1. Support infinity ranges/progressions
   2. Consequently, be `Sequence` but not `Iterable` by default (be lazy).
-  3. Have effective `size`, `contains`, `intersect` and so on operations that have generalized implementation for `Iterable`s and `Sequence`s. They should have same semantics when possible.
+  3. Have effective `size`, `contains`, `intersect`, `union` and other operations that have generalized implementation for `Iterable`s and `Sequence`s. They should have same semantics when possible.
+* `Range` instances, but not `Progression` ones need to be returned from the functions, so `Progression` constructor should be internal or even private, static abstract method `fromClosedRange` and `progression`/`range` functions should be used instead of it from externals of the `Progression` implementation.
 
 ### Regions
-* There is following hierarhy of region classes: `Cell, Row, Column, Sheet : Region`.
+* Regions are expected to be only rectangles to make it easy to find intersections and cell owners. Also, other regions are rarely used in real life.
+* However, there should be `Regions` class that
+  * Contains regions in some specific order.
+  * Supports adding new ones
+  * Removing ones
+  * Comparing with other `Regions` instances
+  * Iterating over regions insie it.
+  * If some region is already contained by some of the regions, it shouldn't be inside. Example: There are two rectangles (vertical and horizontal lines inside)
+  ```
+  ▤▤
+  ▤▤▥
+  ▤▤▥	
+  ▤▤
+  ```
+  and the rectangle to add is (marked with points inside)
+  
+  ```
+  ▢▢
+  ▢▣▣
+  ▢▣▣
+  ▢▢
+  ```
+  No rectangle contains the new one itself but their union does so we don't add the new rectangle.
+* There is following hierarhy of region classes: `Cell, Row, Column, Sheet, EmptyRegion : Region`.
 * Each `Region` can be named.
 * Each region can be  used to address relatively: `someRegion[Cell(23, 1)..Cell(35, 100)][region(56..76, 1)]`
 * All they have internal constructors that are used in `range` function whose return type is as most specific as possible *in runtime*.
@@ -355,6 +379,11 @@ A solution to the compilation speed problem would be given in the corresponding 
   ```
 
 * `Cell` has properties `row` and `column`.
+* Region constructor should be internal. An abstract function `region` should be used instead. It is done to make all cell-, row-, column-, sheet-, emptyRegion- like regions be instances of the corresponding classes.
+* Regions can be infinite
+* Regions can be converted to `Sequence` or `Iterable` with row-by-row and column-by-column order.
+* Regions have `width` and `height` properties.
+* Regions should contain such (extension) methods of `Iterable`s and `Sequence`s that are applyable to them too.
 
 ### Cell types
 
