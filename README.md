@@ -352,21 +352,20 @@ A solution to the compilation speed problem would be given in the corresponding 
   * Comparing with other `Regions` instances
   * Iterating over regions insie it.
   * If some region is already contained by some of the regions, it shouldn't be inside. Example: There are two rectangles (vertical and horizontal lines inside)
-  ```
-  ▤▤
-  ▤▤▥
-  ▤▤▥	
-  ▤▤
-  ```
-  and the rectangle to add is (marked with points inside)
-  
-  ```
-  ▢▢
-  ▢▣▣
-  ▢▣▣
-  ▢▢
-  ```
-  No rectangle contains the new one itself but their union does so we don't add the new rectangle.
+    ```
+    ▤▤
+    ▤▤▥
+    ▤▤▥	
+    ▤▤
+    ```
+    and the rectangle to add is (marked with points inside)
+    ```
+    ▢▢
+    ▢▣▣
+    ▢▣▣
+    ▢▢
+    ```
+    No rectangle contains the new one itself but their union does so we don't add the new rectangle.
 * There is following hierarhy of region classes: `Cell, Row, Column, Sheet, EmptyRegion : Region`.
 * Each `Region` can be named.
 * Each region can be  used to address relatively: `someRegion[Cell(23, 1)..Cell(35, 100)][region(56..76, 1)]`
